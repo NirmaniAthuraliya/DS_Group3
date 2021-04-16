@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Fund {
+public class Fund 
+{
     //Connect to the database
 	private Connection connect() {
 		
@@ -116,13 +117,13 @@ public class Fund {
 				
 				//buttons
 				output += "<td><form method='post' action='Fund.jsp'>"
-						+ "<input name='UPDATE' "
+						+ "<input name='btn_update'"
 						+ " type='submit' value='Update' class='btn btn-warning'>"
 						+ "<input name='fundID' type='hidden' "
 						+ " value='" + fundID + "'>" + "</form></td>"
 						
 						+ "<td><form method='post' action='Fund.jsp'>"
-						+ "<input name='REMOVE'"
+						+ "<input name='btn_remove'"
 						+ " type='submit' value='Remove' class='btn btn-danger'>"
 						+ "<input name='fundID' type='hidden' "
 						+ " value='" + fundID + "'>" + "</form></td></tr>";
@@ -133,10 +134,11 @@ public class Fund {
 			output += "</table>";
 		}
 		catch(Exception e) {	
-			output = "Error while reading the items.";
+			output = "Error while reading the funds.";
 			System.err.println(e.getMessage());
 		}
 		
 		return output;
 	}
+	
 }
