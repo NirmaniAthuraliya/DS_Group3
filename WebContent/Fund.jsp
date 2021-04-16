@@ -15,6 +15,15 @@
 		request.getParameter("Amount"));
 		session.setAttribute("statusMsg", stsMsg);
 	} 
+
+	//Delete Fund----------------------------------
+	if (request.getParameter("fundID") != null)
+	{
+		Fund fundObj = new Fund();
+		String stsMsg = fundObj.deleteFunds(request.getParameter("fundID"));
+		session.setAttribute("statusMsg", stsMsg);
+	}
+
 %>
 
 <!DOCTYPE html>
@@ -32,7 +41,7 @@
 		 	
 		 	<br/><br/>
 		 	
-			   <h2 style="text-align:center">Fund Management</h2>
+			   <h2 style="text-align:center"> Fund Management </h2>
 			   <form method="post" action="Fund.jsp">
 			   <br/>
 			   		<div class="form-group form-row">

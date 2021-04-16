@@ -141,4 +141,41 @@ public class Fund
 		return output;
 	}
 	
+	//remove funds from the database
+	public String deleteFunds(String fundID)
+	{
+		String output = "";
+		
+		try
+		{
+			 Connection conn = connect();
+			 if (conn == null)
+			 {
+				 return "Error while connecting to the database for deleting.";
+			 }
+			 
+			 // create a prepared statement
+			 String query = "DELETE FROM fund "
+			 		+ "WHERE id = ?";
+			 
+			 PreparedStatement preparedStmt = conn.prepareStatement(query);
+			 
+			 // binding values
+			 preparedStmt.setInt(1, Integer.parseInt(fundID));
+		
+			 // execute the statement
+			 preparedStmt.execute();
+			 
+			 conn.close();
+			 output = "Deleted Successfully";
+	    }
+		catch (Exception e)
+		{
+			output = "Error while deleting the fund.";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
+
+	
 }
