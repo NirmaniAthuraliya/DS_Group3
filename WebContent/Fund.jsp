@@ -15,7 +15,6 @@
 		request.getParameter("Amount"));
 		session.setAttribute("statusMsg", stsMsg);
 	} 
-
 %>
 
 <!DOCTYPE html>
