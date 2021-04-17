@@ -6,12 +6,15 @@ import model.PAF.Cart;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-//For XML
-import org.jsoup.*;
-import org.jsoup.parser.*;
-import org.jsoup.nodes.Document;
+//For JSON
+import com.google.gson.*; 
 
-//cartService
+
+//For XML
+import org.jsoup.*; 
+import org.jsoup.parser.*; 
+import org.jsoup.nodes.Document; 
+
 
 @Path("/Cart") 
 
