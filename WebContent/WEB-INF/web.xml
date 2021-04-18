@@ -13,6 +13,11 @@
 	 <url-pattern>/fundService/*</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+ <servlet-name>Jersey Web Application</servlet-name>
+ <url-pattern>/MaterialService/*</url-pattern>
+</servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
