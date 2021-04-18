@@ -6,6 +6,9 @@ import model.PAF.Fund;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
+//For JSON
+import com.google.gson.*;
+
 //For XML
 import org.jsoup.*;
 import org.jsoup.parser.*;
@@ -39,6 +42,22 @@ public class fundService
 	@FormParam("fundAmount") String FundAmount)
 	{
 		String output = fundObj.insertFunds(FundCode, FundName, FundEmail, FundAddress, FundContact, FundAmount);
+		return output;
+	}
+	
+	@DELETE
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String deleteFunds(String fundData)
+	{
+		//Convert the input string to an XML document
+		Document doc = Jsoup.parse(fundData, "", Parser.xmlParser());
+
+		//Read the value from the element <id>
+		String id = doc.select("id").text();
+		
+		String output = fundObj.deleteFunds(id);
 		return output;
 	}
 	
