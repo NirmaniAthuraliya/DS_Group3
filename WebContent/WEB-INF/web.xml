@@ -10,6 +10,11 @@
 
   <servlet-mapping>
 	 <servlet-name>Jersey Web Application</servlet-name>
+	 <url-pattern>/fundService/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+	 <servlet-name>Jersey Web Application</servlet-name>
 	 <url-pattern>/cartService/*</url-pattern>
   </servlet-mapping>
   
@@ -20,5 +25,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>Fund.jsp</welcome-file>
+    <welcome-file>cart.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
