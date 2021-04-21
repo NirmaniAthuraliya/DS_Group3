@@ -16,7 +16,7 @@ import org.jsoup.parser.*;
 import org.jsoup.nodes.Document; 
 
 
-@Path("/Carts") 
+@Path("/Carts")
 
 public class cartService 
 {
@@ -25,6 +25,8 @@ public class cartService
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
+	
+	//Read Cart
 	public String readCart()
 	{
 		return cartObj.readCart();
@@ -35,6 +37,7 @@ public class cartService
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 
+	//Insert into Cart
 	public String insertCart(
 			@FormParam("prodCode") String prodCode,
 			@FormParam("prodName") String prodName,
