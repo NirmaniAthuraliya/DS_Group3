@@ -3,18 +3,25 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-	//Insert Fund----------------------------------
-	if (request.getParameter("Code") != null)
-	{
-		Cart cartObj = new Cart();
-		String stsMsg = cartObj.insertCart(request.getParameter("Code"),
-		request.getParameter("Name"),
-		request.getParameter("Email"),
-		request.getParameter("Address"),
-		request.getParameter("ContactNo"),
-		request.getParameter("Amount"));
-		session.setAttribute("statusMsg", stsMsg);
-	} 
+    //Insert Cart----------------------------------
+    	if (request.getParameter("prodCode") != null)
+    	{
+    		Cart cartObj = new Cart();
+    		String stsMsg = cartObj.insertCart(request.getParameter("prodCode"),
+    				                           request.getParameter("prodName"),
+    				                           request.getParameter("prodPrice"),
+    										   request.getParameter("quantity"),
+    										   request.getParameter("CusAddress"),
+    										   request.getParameter("CusContact"),
+    										   request.getParameter("CusEmail"));
+    		session.setAttribute("statusMsg", stsMsg);
+    	} 
+
+    	/*if (request.getParameter("id") != null) {
+    		Cart cartObj = new Cart();
+    		String stsMsg = cartObj.removeCart(request.getParameter("id"));
+    		session.setAttribute("statusMsg", stsMsg);
+    	}*/
 %>
 
 <!DOCTYPE html>
@@ -32,48 +39,56 @@
 		 	
 		 	<br/><br/>
 		 	
-			   <h2 style="text-align:center">Shopping Cart</h2>
+			   <h2 style="text-align:center">My Shopping Cart</h2>
 			   <form method="post" action="cart.jsp">
 			   <br/>
 			   		<div class="form-group form-row">
-                		<label class="col-sm-3" for="input-Name"> Item Code </label>
+                		<label class="col-sm-3" for="input-Name"> Product Code </label>
                 		<div class="col-sm-9">
-				  			<input name="Code" type="text" class="form-control">
+				  			<input name="prodCode" type="text" class="form-control">
 				  		</div>
 				  	</div>
 				  	
 				  	<div class="form-group form-row">
-                		<label class="col-sm-3" for="input-Name"> Item Name </label>
+                		<label class="col-sm-3" for="input-Name"> Product Name </label>
                 		<div class="col-sm-9">
-				  			<input name="Name" type="text" class="form-control">
+				  			<input name="prodName" type="text" class="form-control">
 				  		</div>
 				  	</div>
 				  	
-				  	<div class="form-group form-row">
-                		<label class="col-sm-3" for="input-Name"> Customer Email </label>
+				  		<div class="form-group form-row">
+                		<label class="col-sm-3" for="input-Name"> Product Price </label>
                 		<div class="col-sm-9">	
-				  			<input name="Email" type="text" class="form-control">
+				  			<input name="prodPrice" type="text" class="form-control">
+				  		</div>
+				  	</div>
+				  
+				  	<div class="form-group form-row">
+                		<label class="col-sm-3" for="input-Name"> Quantity </label>
+                		<div class="col-sm-9">
+				  			<input name="quantity" type="text" class="form-control">
 				  		</div>
 				  	</div>
 				  	
 				  	<div class="form-group form-row">
                 		<label class="col-sm-3" for="input-Name"> Customer Address </label>
                 		<div class="col-sm-9">
-				  			<input name="Address" type="text" class="form-control">
+				  			<input name="cusAddress" type="text" class="form-control">
 				  		</div>
 				  	</div>
 				  	
 				  	<div class="form-group form-row">
                 		<label class="col-sm-3" for="input-Name"> Customer Contact No. </label>
                 		<div class="col-sm-9">
-			      			<input name="ContactNo" type="text" class="form-control"> 
+			      			<input name="CusContact" type="text" class="form-control"> 
 			      		</div>
 				  	</div>
-				  
+				  	
+				  	
 				  	<div class="form-group form-row">
-                		<label class="col-sm-3" for="input-Name"> Item Amount </label>
+                		<label class="col-sm-3" for="input-Name"> Customer Email </label>
                 		<div class="col-sm-9">
-				  			<input name="Amount" type="text" class="form-control">
+				  			<input name="CusEmail" type="text" class="form-control">
 				  		</div>
 				  	</div>
 				  	
