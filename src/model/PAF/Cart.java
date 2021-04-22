@@ -67,7 +67,7 @@ public class Cart {
 			return output;
 		}
 		
-		//Read Cart in the database
+		//Read products in the database
 		public String readCart() 
 		{	
 			String output = "";
