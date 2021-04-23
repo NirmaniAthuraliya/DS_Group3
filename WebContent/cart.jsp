@@ -17,11 +17,11 @@
     		session.setAttribute("statusMsg", stsMsg);
     	} 
 
-    	/*if (request.getParameter("id") != null) {
+    	if (request.getParameter("id") != null) {
     		Cart cartObj = new Cart();
     		String stsMsg = cartObj.removeCart(request.getParameter("id"));
     		session.setAttribute("statusMsg", stsMsg);
-    	}*/
+    	}
 %>
 
 <!DOCTYPE html>
