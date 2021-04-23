@@ -13,12 +13,10 @@ public class Fund
 		
 		Connection conn = null;
 		
-		try {
+		try 
+		{
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/fund_management","root", "");
-			
-			//for testing
-			//System.out.println("Successfully connected");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -141,6 +139,51 @@ public class Fund
 		return output;
 	}
 	
+	//update Fund
+	public String updateFunds(String FundID, String FundCode, String FundName , String FundEmail , String FundAddress, String FundContact, String FundAmount)
+	{
+		 String output = "";
+		 
+		 try
+		 {
+			 Connection conn = connect();
+			 
+			 if (conn == null)
+			 {
+				 return "Error while connecting to the database for updating."; 
+			 }
+			 
+			 // create a prepared statement
+			 String query = "UPDATE fund"
+			 		+ "SET fundCode = ?, fundName = ?, fundEmail = ?, fundAddress = ?, "
+			 		+ "fundContact = ? , fundAmount = ?"
+			 		+ "WHERE id = ?";
+			 
+			PreparedStatement preparedStmt = conn.prepareStatement(query);
+			
+			// binding values
+			preparedStmt.setString(1, FundCode);
+			preparedStmt.setString(2, FundName);
+			preparedStmt.setString(3, FundEmail);
+			preparedStmt.setString(4, FundAddress);
+			preparedStmt.setString(5, FundContact);
+			preparedStmt.setDouble(6, Double.parseDouble(FundAmount));
+			preparedStmt.setInt(7, Integer.parseInt(FundID));
+			
+			// execute the statement
+			preparedStmt.execute();
+			
+			conn.close();
+			output = "Updated Successfully";
+		 }
+		 catch (Exception e)
+		 {
+			 output = "Error while updating the fund.";
+			 System.err.println(e.getMessage());
+		 }
+		 return output;
+	} 
+	
 	//remove funds from the database
 	public String deleteFunds(String fundID)
 	{
@@ -149,6 +192,7 @@ public class Fund
 		try
 		{
 			 Connection conn = connect();
+			 
 			 if (conn == null)
 			 {
 				 return "Error while connecting to the database for deleting.";
