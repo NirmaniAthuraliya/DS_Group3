@@ -1,0 +1,30 @@
+--
+-- Database: `customer_management`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(10) NOT NULL,
+  `prodCode` varchar(10) DEFAULT NULL,
+  `prodName` varchar(50) DEFAULT NULL,
+  `prodPrice` double DEFAULT NULL,
+  `quantity` varchar(10) DEFAULT NULL,
+  `CusAddress` varchar(25) DEFAULT NULL,
+  `CusContact` varchar(10) DEFAULT NULL,
+  `CusEmail` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `prodCode`, `prodName`, `prodPrice`, `quantity`, `CusAddress`, `CusContact`, `CusEmail`) VALUES
+(0, 'prod001', 'Robot1', 250000, '2', 'Kavi Fernando-Hatton', '0772145890', 'kavi@gmail.com'),
+(1, 'prod002', 'Robot2', 200000, '1', 'Nimali Perera-Colombo', '0712345677', 'nimali@gmail.com'),
+(2, 'prod003', 'Robot3', 250000, '2', 'Sarath Fernando-Kandy', '0772389567', 'sarath@gmail.com'),
+(3, 'prod004', 'Robot4', 150000, '3', 'Jayani De Silva-Gampaha', '0723489675', 'jayani@gmail.com');
