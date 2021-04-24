@@ -1,0 +1,26 @@
+--
+-- Database: `supplier`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `MaterialID` int(11) NOT NULL,
+  `MaterialCode` varchar(10) NOT NULL,
+  `MaterialName` varchar(30) NOT NULL,
+  `MaterialPrice` decimal(5,2) NOT NULL,
+  `MaterialDesc` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`MaterialID`, `MaterialCode`, `MaterialName`, `MaterialPrice`, `MaterialDesc`) VALUES
+(5, '1111', 'ceramices', '132.00', 'metalChangedtoceramices'),
+(6, '16', 'plastic', '125.00', 'plasticmaterial'),
+(7, '13', 'glass', '185.00', 'glassprice');
