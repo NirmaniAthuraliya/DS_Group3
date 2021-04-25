@@ -1,0 +1,31 @@
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `itemID` int(11) NOT NULL,
+  `itemCode` varchar(10) NOT NULL,
+  `itemName` varchar(30) NOT NULL,
+  `itemPrice` decimal(5,2) NOT NULL,
+  `itemdesc` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`itemID`, `itemCode`, `itemName`, `itemPrice`, `itemdesc`) VALUES
+(0, 'I001', 'pipe', '300.00', 'di-30cm');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`itemID`);
+COMMIT;
