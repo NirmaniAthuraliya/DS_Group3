@@ -25,7 +25,7 @@ public class cartService
 	@GET
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
-	
+
 	//Read Cart
 	public String readCart()
 	{
@@ -50,7 +50,7 @@ public class cartService
 		String output = cartObj.insertCart(prodCode, prodName, prodPrice, quantity, CusAddress, CusContact, CusEmail);
 		return output;
 	}
-	
+
 	@PUT
 	@Path("/") 
 	@Consumes(MediaType.APPLICATION_JSON) 
@@ -59,7 +59,7 @@ public class cartService
 	{ 
 		//Convert the input string to a JSON object 
 		JsonObject cartObject = new JsonParser().parse(cartData).getAsJsonObject();
-		
+
 		//Read the values from the JSON object
 		String id = cartObject.get("id").getAsString(); 
 		String prodCode = cartObject.get("prodCode").getAsString(); 
@@ -87,6 +87,6 @@ public class cartService
 		String output = cartObj.removeCart(id); 
 		return output; 
 	}
-	
+
 }
 
