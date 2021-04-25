@@ -74,7 +74,7 @@ public class Item {
 
 	
 	
-	//Read funds in the database
+	//Read items in the database
 		public String readItems() 
 		{	
 			String output = "";
@@ -168,7 +168,7 @@ public class Item {
 					return "Error while connecting to the database for updating."; 
 				} 
 				
-				String query = "UPDATE items SET funderName=?,amount=?,fundingDate=?,fundStatus=? WHERE itemID=?"; 
+				String query = "UPDATE items SET itemId=?,itemName=?,Description=?,inventorID=?,inventorName=?,fundStatus=?,SupplyStatus=?,Quantity=?,price=? WHERE itemID=?"; 
 				PreparedStatement preparedStmt = con.prepareStatement(query); 
 				preparedStmt.setString(1, itemId);
 				preparedStmt.setString(2, itemName);
@@ -203,7 +203,7 @@ public class Item {
 				{
 					return "Error while connecting to the database for deleting."; } 
 				
-				String query = "delete from funds where fundID=?"; 
+				String query = "delete from items where itemID=?"; 
 				PreparedStatement preparedStmt = con.prepareStatement(query); 
 				
 				preparedStmt.setInt(1, Integer.parseInt(itemId)); 
