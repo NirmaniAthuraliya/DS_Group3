@@ -74,7 +74,7 @@ public class Item {
 
 	
 	
-	//Read funds in the database
+	//Read items in the database
 		public String readItems() 
 		{	
 			String output = "";
